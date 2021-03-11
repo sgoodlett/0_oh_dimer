@@ -1,0 +1,725 @@
+
+    -----------------------------------------------------------------------
+          Psi4: An Open-Source Ab Initio Electronic Structure Package
+                               Psi4 1.3.2 release
+
+                         Git: Rev {HEAD} ecbda83 
+
+
+    R. M. Parrish, L. A. Burns, D. G. A. Smith, A. C. Simmonett,
+    A. E. DePrince III, E. G. Hohenstein, U. Bozkaya, A. Yu. Sokolov,
+    R. Di Remigio, R. M. Richard, J. F. Gonthier, A. M. James,
+    H. R. McAlexander, A. Kumar, M. Saitow, X. Wang, B. P. Pritchard,
+    P. Verma, H. F. Schaefer III, K. Patkowski, R. A. King, E. F. Valeev,
+    F. A. Evangelista, J. M. Turney, T. D. Crawford, and C. D. Sherrill,
+    J. Chem. Theory Comput. 13(7) pp 3185--3197 (2017).
+    (doi: 10.1021/acs.jctc.7b00174)
+
+
+                         Additional Contributions by
+    P. Kraus, H. Kruse, M. H. Lechner, M. C. Schieber, R. A. Shaw,
+    A. Alenaizan, R. Galvelis, Z. L. Glick, S. Lehtola, and J. P. Misiewicz
+
+    -----------------------------------------------------------------------
+
+
+    Psi4 started on: Monday, 08 March 2021 05:19PM
+
+    Process ID: 86237
+    Host:       c2-18.compute.lan
+    PSIDATADIR: /apps/gb/PSI4/1.3.2/share/psi4
+    Memory:     500.0 MiB
+    Threads:    12
+    
+  ==> Input File <==
+
+--------------------------------------------------------------------------
+memory 4 GB
+
+molecule  {
+0 3
+O    0.000000000000    0.000000000000    1.254673970673
+H    0.000000000000   -0.757744465968    1.844553051273
+H   -0.000000000000    0.757744465968    1.844553051273
+O    0.000000000000    0.000000000000   -1.487121193127
+}
+set {
+basis aug-cc-pvtz
+reference uhf
+e_convergence 10
+scf_type pk
+freeze_core true
+}
+
+set ccenergy {
+e_convergence 10
+r_convergence 10
+}
+
+e = energy('ccsd(t)')
+
+print_out('Stephenergy {}'.format(e))
+
+--------------------------------------------------------------------------
+
+  Memory set to   3.725 GiB by Python driver.
+
+*** tstart() called on c2-18.compute.lan
+*** at Mon Mar  8 17:19:36 2021
+
+   => Loading Basis Set <=
+
+    Name: AUG-CC-PVTZ
+    Role: ORBITAL
+    Keyword: BASIS
+    atoms 1, 4 entry O          line   327 file /apps/gb/PSI4/1.3.2/share/psi4/basis/aug-cc-pvtz.gbs 
+    atoms 2-3  entry H          line    36 file /apps/gb/PSI4/1.3.2/share/psi4/basis/aug-cc-pvtz.gbs 
+
+
+         ---------------------------------------------------------
+                                   SCF
+               by Justin Turney, Rob Parrish, Andy Simmonett
+                          and Daniel G. A. Smith
+                              UHF Reference
+                       12 Threads,   3814 MiB Core
+         ---------------------------------------------------------
+
+  ==> Geometry <==
+
+    Molecular point group: c2v
+    Full point group: C2v
+
+    Geometry (in Angstrom), charge = 0, multiplicity = 3:
+
+       Center              X                  Y                   Z               Mass       
+    ------------   -----------------  -----------------  -----------------  -----------------
+         O            0.000000000000     0.000000000000     1.254673970673    15.994914619570
+         H            0.000000000000    -0.757744465968     1.844553051273     1.007825032230
+         H           -0.000000000000     0.757744465968     1.844553051273     1.007825032230
+         O            0.000000000000     0.000000000000    -1.487121193127    15.994914619570
+
+  Running in c2v symmetry.
+
+  Rotational constants: A =     14.56585  B =      0.25007  C =      0.24585 [cm^-1]
+  Rotational constants: A = 436673.17717  B =   7497.03396  C =   7370.49346 [MHz]
+  Nuclear repulsion =   23.996528564695666
+
+  Charge       = 0
+  Multiplicity = 3
+  Electrons    = 18
+  Nalpha       = 10
+  Nbeta        = 8
+
+  ==> Algorithm <==
+
+  SCF Algorithm Type is PK.
+  DIIS enabled.
+  MOM disabled.
+  Fractional occupation disabled.
+  Guess Type is SAD.
+  Energy threshold   = 1.00e-10
+  Density threshold  = 1.00e-08
+  Integral threshold = 0.00e+00
+
+  ==> Primary Basis <==
+
+  Basis Set: AUG-CC-PVTZ
+    Blend: AUG-CC-PVTZ
+    Number of shells: 46
+    Number of basis function: 138
+    Number of Cartesian functions: 160
+    Spherical Harmonics?: true
+    Max angular momentum: 3
+
+  ==> Pre-Iterations <==
+
+   -------------------------------------------------------
+    Irrep   Nso     Nmo     Nalpha   Nbeta   Ndocc  Nsocc
+   -------------------------------------------------------
+     A1        54      54       0       0       0       0
+     A2        17      17       0       0       0       0
+     B1        29      29       0       0       0       0
+     B2        38      38       0       0       0       0
+   -------------------------------------------------------
+    Total     138     138      10       8       8       2
+   -------------------------------------------------------
+
+  ==> Integral Setup <==
+
+  Using in-core PK algorithm.
+   Calculation information:
+      Number of atoms:                   4
+      Number of AO shells:              46
+      Number of primitives:             82
+      Number of atomic orbitals:       160
+      Number of basis functions:       138
+
+      Integral cutoff                 1.00e-12
+      Number of threads:                12
+
+  Performing in-core PK
+  Using 91996872 doubles for integral storage.
+  We computed 912540 shell quartets total.
+  Whereas there are 584821 unique shell quartets.
+    56.04 percent of shell quartets recomputed by reordering.
+
+  ==> DiskJK: Disk-Based J/K Matrices <==
+
+    J tasked:                  Yes
+    K tasked:                  Yes
+    wK tasked:                  No
+    Memory [MiB]:             2861
+    Schwarz Cutoff:          1E-12
+
+    OpenMP threads:             12
+
+  Minimum eigenvalue in the overlap matrix is 3.1980863578E-04.
+  Using Symmetric Orthogonalization.
+
+  SCF Guess: Superposition of Atomic Densities via on-the-fly atomic UHF.
+
+  ==> Iterations <==
+
+                        Total Energy        Delta E     RMS |[F,P]|
+
+   @UHF iter SAD:  -149.38421578094005   -1.49384e+02   0.00000e+00 
+   @UHF iter   1:  -150.76977558561111   -1.38556e+00   6.68568e-03 DIIS
+   @UHF iter   2:  -150.84085402095573   -7.10784e-02   4.23702e-03 DIIS
+   @UHF iter   3:  -150.87192411569407   -3.10701e-02   5.62517e-04 DIIS
+   @UHF iter   4:  -150.87332982829616   -1.40571e-03   1.70365e-04 DIIS
+   @UHF iter   5:  -150.87346406030721   -1.34232e-04   6.96147e-05 DIIS
+   @UHF iter   6:  -150.87349695448833   -3.28942e-05   2.09062e-05 DIIS
+   @UHF iter   7:  -150.87350006719788   -3.11271e-06   5.39339e-06 DIIS
+   @UHF iter   8:  -150.87350029411925   -2.26921e-07   1.52943e-06 DIIS
+   @UHF iter   9:  -150.87350031203519   -1.79159e-08   3.98357e-07 DIIS
+   @UHF iter  10:  -150.87350031334154   -1.30635e-09   1.93209e-07 DIIS
+   @UHF iter  11:  -150.87350031375379   -4.12257e-10   7.21244e-08 DIIS
+   @UHF iter  12:  -150.87350031381084   -5.70424e-11   1.53428e-08 DIIS
+   @UHF iter  13:  -150.87350031381297   -2.13163e-12   4.49736e-09 DIIS
+  Energy and wave function converged.
+
+
+  ==> Post-Iterations <==
+
+   @Spin Contamination Metric:   9.551277040E-03
+   @S^2 Expected:                2.000000000E+00
+   @S^2 Observed:                2.009551277E+00
+   @S   Expected:                1.000000000E+00
+   @S   Observed:                1.000000000E+00
+
+    Orbital Energies [Eh]
+    ---------------------
+
+    Alpha Occupied:                                                       
+
+       1A1   -20.683876     2A1   -20.571145     3A1    -1.393428  
+       4A1    -1.356248     1B2    -0.719200     5A1    -0.688121  
+       1B1    -0.684668     6A1    -0.586848     2B2    -0.585676  
+       2B1    -0.514304  
+
+    Alpha Virtual:                                                        
+
+       7A1     0.029563     3B2     0.047683     8A1     0.118158  
+       3B1     0.154279     9A1     0.159440     4B2     0.180313  
+       5B2     0.187401     4B1     0.192859    10A1     0.198354  
+       1A2     0.263737     6B2     0.264610    11A1     0.265802  
+      12A1     0.314375     5B1     0.327096    13A1     0.375913  
+       7B2     0.380541    14A1     0.450260     8B2     0.464510  
+       9B2     0.600053     6B1     0.644385    15A1     0.648092  
+       2A2     0.658253    16A1     0.667317    17A1     0.700586  
+       3A2     0.721955    10B2     0.725102     7B1     0.769296  
+      18A1     0.792555    19A1     0.820983     8B1     0.838038  
+      20A1     0.861002     9B1     0.901245    11B2     0.918470  
+       4A2     0.925417    12B2     0.947380    13B2     0.982574  
+      21A1     0.992068    10B1     1.016821    22A1     1.047359  
+      14B2     1.052145    11B1     1.124568     5A2     1.177461  
+      23A1     1.192904    15B2     1.201966    16B2     1.331366  
+      24A1     1.335116    25A1     1.455638     6A2     1.507618  
+      12B1     1.595808    26A1     1.669065    27A1     1.811902  
+      17B2     1.825211    18B2     1.977263    28A1     2.041241  
+      13B1     2.048749    19B2     2.054638     7A2     2.058889  
+      14B1     2.059468    29A1     2.080097    30A1     2.115218  
+       8A2     2.119769    20B2     2.139523    31A1     2.143346  
+      15B1     2.149620    32A1     2.254229    21B2     2.276126  
+      16B1     2.302254     9A2     2.311839    17B1     2.440580  
+      33A1     2.477780    22B2     2.482042    34A1     2.495503  
+      35A1     2.698042    18B1     2.716987    23B2     2.720835  
+      36A1     2.848818    24B2     2.859284    10A2     2.880719  
+      25B2     3.696251    37A1     3.753597    11A2     4.015143  
+      19B1     4.080626    20B1     4.100643    38A1     4.141841  
+      26B2     4.185759    27B2     4.286205    21B1     4.287876  
+      39A1     4.358986    12A2     4.383026    40A1     4.427614  
+      22B1     4.456965    28B2     4.517665    41A1     4.797269  
+      29B2     4.844801    30B2     5.146228    13A2     5.146931  
+      31B2     5.248253    42A1     5.345942    23B1     5.520758  
+      43A1     5.687113    44A1     6.203831    24B1     6.391483  
+      14A2     6.411430    45A1     6.412172    32B2     6.424635  
+      25B1     6.436396    33B2     6.493383    46A1     6.546057  
+      34B2     6.580259    26B1     6.720265    27B1     6.904605  
+      47A1     6.909325    15A2     6.925322    48A1     6.949670  
+      35B2     6.987748    49A1     7.047245    28B1     7.135782  
+      29B1     7.280841    36B2     7.308233    16A2     7.309229  
+      17A2     7.352480    50A1     7.440112    51A1     7.546504  
+      52A1     7.908837    37B2     7.921452    38B2     8.814111  
+      53A1     8.894207    54A1    15.816739  
+
+    Beta Occupied:                                                        
+
+       1A1   -20.604988     2A1   -20.570632     3A1    -1.355517  
+       4A1    -1.050580     1B2    -0.718834     5A1    -0.588928  
+       1B1    -0.513572     2B2    -0.495069  
+
+    Beta Virtual:                                                         
+
+       6A1     0.029404     3B2     0.047766     2B1     0.086942  
+       7A1     0.092130     8A1     0.141386     9A1     0.167030  
+       3B1     0.170746     4B2     0.180908     5B2     0.191045  
+      10A1     0.225846     4B1     0.253595     1A2     0.263739  
+       6B2     0.265042    11A1     0.288896    12A1     0.316784  
+       5B1     0.328368     7B2     0.380711    13A1     0.386563  
+      14A1     0.451336     8B2     0.464722     9B2     0.601723  
+      15A1     0.660711     6B1     0.668201     2A2     0.672590  
+      16A1     0.674065    17A1     0.717915     3A2     0.722463  
+      10B2     0.737258     7B1     0.780928    18A1     0.807117  
+       8B1     0.847253    19A1     0.852724     4A2     0.925843  
+      20A1     0.928036    11B2     0.936545    12B2     0.953980  
+      13B2     0.986453     9B1     0.987888    21A1     0.999318  
+      14B2     1.053277    22A1     1.053906    10B1     1.061926  
+      11B1     1.141858     5A2     1.177669    23A1     1.194369  
+      15B2     1.204643    16B2     1.333846    24A1     1.391646  
+      25A1     1.492877     6A2     1.508067    12B1     1.597811  
+      26A1     1.700530    27A1     1.817366    17B2     1.825549  
+      18B2     1.978795    28A1     2.070876    13B1     2.071305  
+      19B2     2.072021     7A2     2.083603    29A1     2.100483  
+      14B1     2.102126    30A1     2.155853    20B2     2.187145  
+       8A2     2.202878    31A1     2.210030    15B1     2.261818  
+       9A2     2.311968    32A1     2.313431    16B1     2.317158  
+      21B2     2.326053    17B1     2.449326    33A1     2.484602  
+      22B2     2.484856    34A1     2.529166    35A1     2.705046  
+      18B1     2.718836    23B2     2.721763    24B2     2.859407  
+      36A1     2.861511    10A2     2.880758    25B2     3.697205  
+      37A1     3.753733    11A2     4.015175    19B1     4.083144  
+      38A1     4.173528    26B2     4.221430    20B1     4.259698  
+      21B1     4.293447    27B2     4.296935    12A2     4.383142  
+      39A1     4.423892    22B1     4.462386    40A1     4.477626  
+      28B2     4.517758    41A1     4.808825    29B2     4.844974  
+      30B2     5.146428    13A2     5.147015    31B2     5.248747  
+      42A1     5.346607    23B1     5.520882    43A1     5.692181  
+      44A1     6.205436    24B1     6.486380    14A2     6.488256  
+      32B2     6.488382    45A1     6.495231    25B1     6.500753  
+      33B2     6.527127    34B2     6.610456    46A1     6.617844  
+      26B1     6.728261    47A1     6.969734    15A2     7.038868  
+      48A1     7.042954    27B1     7.087166    35B2     7.099578  
+      28B1     7.136232    49A1     7.173514    29B1     7.284950  
+      36B2     7.308445    16A2     7.309537    17A2     7.352925  
+      50A1     7.442991    51A1     7.547603    52A1     7.909479  
+      37B2     7.921836    38B2     8.814518    53A1     8.973251  
+      54A1    15.817093  
+
+    Final Occupation by Irrep:
+             A1    A2    B1    B2 
+    DOCC [     5,    0,    1,    2 ]
+    SOCC [     1,    0,    1,    0 ]
+
+  @UHF Final Energy:  -150.87350031381297
+
+   => Energetics <=
+
+    Nuclear Repulsion Energy =             23.9965285646956659
+    One-Electron Energy =                -256.0584244190465597
+    Two-Electron Energy =                  81.1883955405379254
+    Total Energy =                       -150.8735003138129684
+
+  UHF NO Occupations:
+  HONO-2 :    5 A1 1.9970477
+  HONO-1 :    2 B1 1.0000000
+  HONO-0 :    6 A1 1.0000000
+  LUNO+0 :    7 A1 0.0029523
+  LUNO+1 :    3 B2 0.0018001
+  LUNO+2 :    8 A1 0.0000250
+  LUNO+3 :    9 A1 0.0000024
+
+
+Computation Completed
+
+
+Properties will be evaluated at   0.000000,   0.000000,   0.000000 [a0]
+
+Properties computed using the SCF density matrix
+
+  Nuclear Dipole Moment: [e a0]
+     X:     0.0000      Y:     0.0000      Z:     3.4573
+
+  Electronic Dipole Moment: [e a0]
+     X:     0.0000      Y:     0.0000      Z:    -2.6181
+
+  Dipole Moment: [e a0]
+     X:     0.0000      Y:     0.0000      Z:     0.8392     Total:     0.8392
+
+  Dipole Moment: [D]
+     X:     0.0000      Y:     0.0000      Z:     2.1330     Total:     2.1330
+
+
+*** tstop() called on c2-18.compute.lan at Mon Mar  8 17:19:42 2021
+Module time:
+	user time   =      45.09 seconds =       0.75 minutes
+	system time =       2.13 seconds =       0.04 minutes
+	total time  =          6 seconds =       0.10 minutes
+Total time:
+	user time   =      45.09 seconds =       0.75 minutes
+	system time =       2.13 seconds =       0.04 minutes
+	total time  =          6 seconds =       0.10 minutes
+ MINTS: Wrapper to libmints.
+   by Justin Turney
+
+   Calculation information:
+      Number of threads:                12
+      Number of atoms:                   4
+      Number of AO shells:              46
+      Number of SO shells:              37
+      Number of primitives:             82
+      Number of atomic orbitals:       160
+      Number of basis functions:       138
+
+      Number of irreps:                  4
+      Integral cutoff                 0.00e+00
+      Number of functions per irrep: [  54   17   29   38 ]
+
+ OEINTS: Overlap, kinetic, potential, dipole, and quadrupole integrals
+         stored in file 35.
+
+      Computing two-electron integrals...done
+      Computed 11331445 non-zero two-electron integrals.
+        Stored in file 33.
+
+
+*** tstart() called on c2-18.compute.lan
+*** at Mon Mar  8 17:19:45 2021
+
+
+	Wfn Parameters:
+	--------------------
+	Wavefunction         = CCSD_T
+	Number of irreps     = 4
+	Number of MOs        = 138
+	Number of active MOs = 136
+	AO-Basis             = NONE
+	Semicanonical        = false
+	Reference            = UHF
+	Print Level          = 1
+
+	IRREP	# MOs	# FZDC	# DOCC	# SOCC	# VIRT	# FZVR
+	-----	-----	------	------	------	------	------
+	 A1	   54	    2	    3	    1	    48	    0
+	 A2	   17	    0	    0	    0	    17	    0
+	 B1	   29	    0	    1	    1	    27	    0
+	 B2	   38	    0	    2	    0	    36	    0
+	Transforming integrals...
+	IWL integrals will be deleted.
+	(OO|OO)...
+	Presorting SO-basis two-electron integrals.
+	Sorting File: SO Ints (nn|nn) nbuckets = 1
+	Transforming the one-electron integrals and constructing Fock matrices
+	Starting AA/AB first half-transformation.
+	Sorting AA/AB half-transformed integrals.
+	Starting BB first half-transformation.
+	Sorting BB half-transformed integrals.
+	First half integral transformation complete.
+	Starting AA second half-transformation.
+	Starting AB second half-transformation.
+	Starting BB second half-transformation.
+	Two-electron integral transformation complete.
+	(OO|OV)...
+	Starting AA second half-transformation.
+	Starting AB second half-transformation.
+	Starting BB second half-transformation.
+	Two-electron integral transformation complete.
+	(OO|VV)...
+	Starting AA second half-transformation.
+	Starting AB second half-transformation.
+	Starting BB second half-transformation.
+	Two-electron integral transformation complete.
+	(OV|OO)...
+	Starting AA/AB first half-transformation.
+	Sorting AA/AB half-transformed integrals.
+	Starting BB first half-transformation.
+	Sorting BB half-transformed integrals.
+	First half integral transformation complete.
+	Starting AA second half-transformation.
+	Starting AB second half-transformation.
+	Starting BB second half-transformation.
+	Two-electron integral transformation complete.
+	(OV|OV)...
+	Starting AA second half-transformation.
+	Starting AB second half-transformation.
+	Starting BB second half-transformation.
+	Two-electron integral transformation complete.
+	(OV|VV)...
+	Starting AA second half-transformation.
+	Starting AB second half-transformation.
+	Starting BB second half-transformation.
+	Two-electron integral transformation complete.
+	(VV|OO)...
+	Starting AA/AB first half-transformation.
+	Sorting AA/AB half-transformed integrals.
+	Starting BB first half-transformation.
+	Sorting BB half-transformed integrals.
+	First half integral transformation complete.
+	Starting AA second half-transformation.
+	Starting AB second half-transformation.
+	Starting BB second half-transformation.
+	Two-electron integral transformation complete.
+	(VV|OV)...
+	Starting AA second half-transformation.
+	Starting AB second half-transformation.
+	Starting BB second half-transformation.
+	Two-electron integral transformation complete.
+	(VV|VV)...
+	Starting AA second half-transformation.
+	Starting AB second half-transformation.
+	Starting BB second half-transformation.
+	Two-electron integral transformation complete.
+	Frozen core energy     =   -126.43864444359673
+
+	Size of irrep 0 of <AB|CD> integrals:      5.040 (MW) /     40.320 (MB)
+	Size of irrep 1 of <AB|CD> integrals:      3.197 (MW) /     25.576 (MB)
+	Size of irrep 2 of <AB|CD> integrals:      3.640 (MW) /     29.124 (MB)
+	Size of irrep 3 of <AB|CD> integrals:      4.783 (MW) /     38.264 (MB)
+	Total:                                    16.660 (MW) /    133.283 (MB)
+
+	Size of irrep 0 of <ab|cd> integrals:      5.382 (MW) /     43.059 (MB)
+	Size of irrep 1 of <ab|cd> integrals:      3.389 (MW) /     27.114 (MB)
+	Size of irrep 2 of <ab|cd> integrals:      3.936 (MW) /     31.490 (MB)
+	Size of irrep 3 of <ab|cd> integrals:      5.018 (MW) /     40.141 (MB)
+	Total:                                    17.726 (MW) /    141.804 (MB)
+
+	Size of irrep 0 of <Ab|Cd> integrals:     22.024 (MW) /    176.194 (MB)
+	Size of irrep 1 of <Ab|Cd> integrals:     13.170 (MW) /    105.357 (MB)
+	Size of irrep 2 of <Ab|Cd> integrals:     15.140 (MW) /    121.119 (MB)
+	Size of irrep 3 of <Ab|Cd> integrals:     19.598 (MW) /    156.787 (MB)
+	Total:                                    69.932 (MW) /    559.457 (MB)
+
+	Size of irrep 0 of <IA|BC> integrals:      1.469 (MW) /     11.748 (MB)
+	Size of irrep 1 of <IA|BC> integrals:      0.694 (MW) /      5.550 (MB)
+	Size of irrep 2 of <IA|BC> integrals:      0.908 (MW) /      7.266 (MB)
+	Size of irrep 3 of <IA|BC> integrals:      1.198 (MW) /      9.588 (MB)
+	Total:                                     4.269 (MW) /     34.152 (MB)
+
+	Size of irrep 0 of <ia|bc> integrals:      1.178 (MW) /      9.426 (MB)
+	Size of irrep 1 of <ia|bc> integrals:      0.527 (MW) /      4.212 (MB)
+	Size of irrep 2 of <ia|bc> integrals:      0.663 (MW) /      5.301 (MB)
+	Size of irrep 3 of <ia|bc> integrals:      0.999 (MW) /      7.992 (MB)
+	Total:                                     3.366 (MW) /     26.931 (MB)
+
+	Size of irrep 0 of <Ia|Bc> integrals:      1.521 (MW) /     12.164 (MB)
+	Size of irrep 1 of <Ia|Bc> integrals:      0.711 (MW) /      5.690 (MB)
+	Size of irrep 2 of <Ia|Bc> integrals:      0.949 (MW) /      7.595 (MB)
+	Size of irrep 3 of <Ia|Bc> integrals:      1.222 (MW) /      9.775 (MB)
+	Total:                                     4.403 (MW) /     35.225 (MB)
+
+	Size of irrep 0 of <iA|bC> integrals:      1.140 (MW) /      9.123 (MB)
+	Size of irrep 1 of <iA|bC> integrals:      0.512 (MW) /      4.094 (MB)
+	Size of irrep 2 of <iA|bC> integrals:      0.634 (MW) /      5.074 (MB)
+	Size of irrep 3 of <iA|bC> integrals:      0.978 (MW) /      7.827 (MB)
+	Total:                                     3.265 (MW) /     26.118 (MB)
+
+	Size of irrep 0 of tIjAb amplitudes:       0.084 (MW) /      0.676 (MB)
+	Size of irrep 1 of tIjAb amplitudes:       0.022 (MW) /      0.174 (MB)
+	Size of irrep 2 of tIjAb amplitudes:       0.039 (MW) /      0.311 (MB)
+	Size of irrep 3 of tIjAb amplitudes:       0.062 (MW) /      0.496 (MB)
+	Total:                                     0.207 (MW) /      1.657 (MB)
+
+	Nuclear Rep. energy          =     23.99652856469567
+	SCF energy                   =   -150.87350031381297
+	One-electron energy          =    -85.61177708595403
+	Two-electron (AA) energy     =     10.39716093364850
+	Two-electron (BB) energy     =      5.48321926504383
+	Two-electron (AB) energy     =     21.30001245234839
+	Two-electron energy          =     37.18039265104072
+	Reference energy             =   -150.87350031381436
+
+*** tstop() called on c2-18.compute.lan at Mon Mar  8 17:20:44 2021
+Module time:
+	user time   =     473.64 seconds =       7.89 minutes
+	system time =      26.93 seconds =       0.45 minutes
+	total time  =         59 seconds =       0.98 minutes
+Total time:
+	user time   =     524.47 seconds =       8.74 minutes
+	system time =      29.68 seconds =       0.49 minutes
+	total time  =         68 seconds =       1.13 minutes
+            **************************
+            *                        *
+            *        CCENERGY        *
+            *                        *
+            **************************
+
+    Nuclear Rep. energy (wfn)     =   23.996528564695666
+    SCF energy          (wfn)     = -150.873500313812968
+    Reference energy    (file100) = -150.873500313814361
+
+    Input parameters:
+    -----------------
+    Wave function   =     CCSD_T
+    Reference wfn   =     UHF
+    Brueckner       =     No
+    Memory (Mbytes) =     4000.0
+    Maxiter         =     50
+    R_Convergence   =     1.0e-10
+    E_Convergence   =     1.0e-10
+    Restart         =     Yes
+    DIIS            =     Yes
+    AO Basis        =     NONE
+    ABCD            =     NEW
+    Cache Level     =     2
+    Cache Type      =     LRU
+    Print Level     =     1
+    Num. of threads =     12
+    # Amps to Print =     10
+    Print MP2 Amps? =     No
+    Analyze T2 Amps =     No
+    Print Pair Ener =     No
+    Local CC        =     No
+    SCS-MP2         =     False
+    SCSN-MP2        =     False
+    SCS-CCSD        =     False
+
+MP2 correlation energy -0.4162733404119980
+                Solving CC Amplitude Equations
+                ------------------------------
+  Iter             Energy              RMS        T1Diag      D1Diag    New D1Diag    D2Diag
+  ----     ---------------------    ---------   ----------  ----------  ----------   --------
+     0        -0.416273340411998    0.000e+00    0.000000    0.000000    0.000000    0.000000
+     1        -0.427073726480160    5.697e-02    0.010591    0.000000    0.000000    0.000000
+     2        -0.435164714300836    1.702e-02    0.011093    0.000000    0.000000    0.000000
+     3        -0.437314840900040    8.801e-03    0.013026    0.000000    0.000000    0.000000
+     4        -0.437187904110226    2.700e-03    0.013443    0.000000    0.000000    0.000000
+     5        -0.437178513688127    1.409e-03    0.013643    0.000000    0.000000    0.000000
+     6        -0.437207933207147    5.319e-04    0.013671    0.000000    0.000000    0.000000
+     7        -0.437210914821091    2.160e-04    0.013666    0.000000    0.000000    0.000000
+     8        -0.437211827397441    6.676e-05    0.013662    0.000000    0.000000    0.000000
+     9        -0.437212516493336    2.405e-05    0.013661    0.000000    0.000000    0.000000
+    10        -0.437211608981348    9.233e-06    0.013661    0.000000    0.000000    0.000000
+    11        -0.437211774805790    4.074e-06    0.013661    0.000000    0.000000    0.000000
+    12        -0.437211735692273    1.494e-06    0.013661    0.000000    0.000000    0.000000
+    13        -0.437211744281325    7.565e-07    0.013661    0.000000    0.000000    0.000000
+    14        -0.437211767908412    3.186e-07    0.013661    0.000000    0.000000    0.000000
+    15        -0.437211769487811    1.144e-07    0.013661    0.000000    0.000000    0.000000
+    16        -0.437211770156597    5.275e-08    0.013661    0.000000    0.000000    0.000000
+    17        -0.437211770700979    2.001e-08    0.013661    0.000000    0.000000    0.000000
+    18        -0.437211770535120    1.085e-08    0.013661    0.000000    0.000000    0.000000
+    19        -0.437211770293551    4.166e-09    0.013661    0.000000    0.000000    0.000000
+    20        -0.437211770279172    2.227e-09    0.013661    0.000000    0.000000    0.000000
+    21        -0.437211770255769    8.417e-10    0.013661    0.000000    0.000000    0.000000
+    22        -0.437211770254781    3.348e-10    0.013661    0.000000    0.000000    0.000000
+    23        -0.437211770254338    1.753e-10    0.013661    0.000000    0.000000    0.000000
+    24        -0.437211770254143    7.197e-11    0.013661    0.000000    0.000000    0.000000
+
+    Iterations converged.
+
+
+    Largest TIA Amplitudes:
+              5  65        -0.0133657666
+              5  67        -0.0111390528
+              7  94         0.0105437383
+              5  66        -0.0096118327
+              3   1         0.0074903899
+              4  65        -0.0074882493
+              2   3         0.0072247191
+              4  66         0.0071852155
+              3   5        -0.0055213802
+              3   6         0.0054736713
+
+    Largest Tia Amplitudes:
+              3  67        -0.0147221148
+              2   2         0.0137796774
+              3  69        -0.0107404469
+              5  96         0.0080282510
+              3  66        -0.0079648371
+              2   1        -0.0070493001
+              2   7         0.0057481904
+              2   6        -0.0054832785
+              1  25        -0.0053935056
+              4 109         0.0053696231
+
+    Largest TIJAB Amplitudes:
+      7   4 100  71         0.0141802257
+      7   4  55  23        -0.0135835475
+      7   2 100  12        -0.0120010562
+      4   2  71  12         0.0108546574
+      6   5  50   9        -0.0086084617
+      7   4  49  23         0.0082529415
+      6   5  97  72        -0.0081032486
+      7   4  94  71         0.0079084249
+      7   4  55   8        -0.0076803559
+      7   4 100  82        -0.0073273005
+
+    Largest Tijab Amplitudes:
+      5   1  66  56         0.0086602376
+      5   1  66  50        -0.0085406115
+      5   1  68  56         0.0081659300
+      4   3  99  67        -0.0076274854
+      5   1  68  50        -0.0074470299
+      4   2  99   2         0.0072166746
+      4   3  99  73        -0.0072014494
+      4   2  99  12         0.0069510998
+      4   2 100   9        -0.0067332551
+      4   3  51  10        -0.0065150716
+
+    Largest TIjAb Amplitudes:
+      6   4  97  99        -0.0217560079
+      7   5 100 103        -0.0211179468
+      7   5 100 102         0.0195977772
+      7   1  55  66        -0.0180099380
+      7   5 100  96        -0.0171401985
+      7   1  55  68        -0.0168322991
+      4   1  23  66        -0.0165543023
+      5   3  72  73        -0.0160780384
+      4   1  23  68        -0.0154236480
+      7   5  55  56        -0.0145305146
+
+    SCF energy       (wfn)                    = -150.873500313812968
+    Reference energy (file100)                = -150.873500313814361
+
+    Opposite-spin MP2 correlation energy      =   -0.314412030011621
+    Same-spin MP2 correlation energy          =   -0.101861310400377
+    MP2 correlation energy                    =   -0.416273340411998
+      * MP2 total energy                      = -151.289773654226366
+
+    Opposite-spin CCSD correlation energy     =   -0.342064490769007
+    Same-spin CCSD correlation energy         =   -0.095147279485136
+    CCSD correlation energy                   =   -0.437211770254143
+      * CCSD total energy                     = -151.310712084068513
+
+            **************************
+            *                        *
+            *        CCTRIPLES       *
+            *                        *
+            **************************
+
+
+    Wave function   =    CCSD_T
+    Reference wfn   =      UHF
+
+    Nuclear Rep. energy (wfn)                =   23.996528564695666
+    SCF energy          (wfn)                = -150.873500313812968
+    Reference energy    (file100)            = -150.873500313814361
+    CCSD energy         (file100)            =   -0.437211770254143
+    Total CCSD energy   (file100)            = -151.310712084068513
+
+    Number of ijk index combinations:
+    Spin Case AAA:                                  56
+    Spin Case BBB:                                  20
+    Spin Case AAB:                                 168
+    Spin Case ABB:                                 120
+    AAA (T) energy                             =   -0.000396152761776
+    BBB (T) energy                             =   -0.000202689799496
+    AAB (T) energy                             =   -0.006709946639488
+    ABB (T) energy                             =   -0.004985839985152
+    (T) energy                                   =   -0.012294629185913
+      * CCSD(T) total energy                     = -151.323006713254415
+
+Stephenergy -151.32300671325441
+    Psi4 stopped on: Monday, 08 March 2021 05:21PM
+    Psi4 wall time for execution: 0:02:19.79
+
+*** Psi4 exiting successfully. Buy a developer a beer!

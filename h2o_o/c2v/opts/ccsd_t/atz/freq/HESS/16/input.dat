@@ -1,0 +1,26 @@
+memory 4 GB
+
+molecule  {
+0 3
+O    0.000000000000    0.000000000000    1.270171670022
+H    0.000000000000   -0.760239062147    1.861363063539
+H   -0.000000000000    0.759420376253    1.857738424905
+O    0.000000000000    0.000051584654   -1.504508874478
+}
+set {
+basis aug-cc-pvtz
+reference uhf
+e_convergence 10
+scf_type pk
+freeze_core true
+}
+
+set ccenergy {
+e_convergence 10
+r_convergence 10
+}
+
+e = energy('ccsd(t)')
+
+print_out('Stephenergy {}'.format(e))
+
